@@ -170,7 +170,7 @@ app.post("/sehir-bazli-analiz-yap", (req, res) => {
 
           count--;
         }
-        function compare(a, b) {
+        function karsilastir(a, b) {
           if (a.ToplamTutar > b.ToplamTutar) {
             return -1;
           }
@@ -180,7 +180,7 @@ app.post("/sehir-bazli-analiz-yap", (req, res) => {
           return 0;
         }
 
-        DtoSehirAnaliz.sort(compare)
+        DtoSehirAnaliz.sort(karsilastir)
         res.status(200).json({
           DtoSehirAnaliz
         });
