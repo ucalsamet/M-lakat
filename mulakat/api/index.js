@@ -170,10 +170,21 @@ app.post("/sehir-bazli-analiz-yap", (req, res) => {
 
           count--;
         }
+        function compare(a, b) {
+          if (a.ToplamTutar > b.ToplamTutar) {
+            return -1;
+          }
+          if (a.ToplamTutar < b.ToplamTutar) {
+            return 1;
+          }
+          return 0;
+        }
+
+        DtoSehirAnaliz.sort(compare)
         res.status(200).json({
           DtoSehirAnaliz
         });
-        console.log(DtoSehirAnaliz);
+       console.log(DtoSehirAnaliz);
       }
     }
   );
